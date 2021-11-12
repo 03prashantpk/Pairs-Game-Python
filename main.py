@@ -60,9 +60,9 @@ player_name_foreground = "#000000"
 button_bg = "#F5DEB3"
 
 #footer lable win and Alert color
-footer_label = "#194049"
-footer_fg = "#F6F8FC"
-footer_label_W = "#41C4C0"
+footer_label = "#FFD800"
+footer_fg = "#000"
+footer_label_W = "#FFD700"
 footer_label_f = "#194049"
 
 # record total chance remaining and total matches
@@ -262,6 +262,15 @@ def app_Update():
 def App_developer():
     messagebox.showinfo("App Developer", "This App is developed for Project.\n Work Given by - Moin Hasan\n Please Run update.bat to update in future.")
   
+def Project():
+    messagebox.showinfo("Other Projects", "Our Other App\n 1. Multi Image Downloader - Using Python \n 2. Pair Game - Python \n 3. Music App - Python")
+
+def contact():
+    messagebox.showinfo("Contact", "You can contact us at.\n Email: admin@enally.in \n Phone: 96120xxxxx.")
+
+def about():
+    messagebox.showinfo("About Game", "Pair Game\n This a a pair game where you have to select and match 2 tiles to win the game.\n It also has some music track and sound effects to make it more fun.")
+  
 
 # Menu_bar Extension
 menubar = Menu(window)
@@ -269,7 +278,6 @@ menubar = Menu(window)
 # Adding File Menu save and more
 file = Menu(menubar, tearoff = 0)
 menubar.add_cascade(label ='File', menu = file,font=menu_font_size)
-file.add_command(label ='New File', command = None, font=menu_font_size, background=menu_background)
 file.add_command(label ='Open...', command = lambda: open_ss(),font=menu_font_size , background=menu_background)
 file.add_command(label ='Save', command = lambda: screen_shot(), font=menu_font_size, background=menu_background)
 file.add_separator(background=menu_background)
@@ -285,10 +293,10 @@ edit.add_command(label ='SOUHILA - Trap Oriental Beat x Balkan Oriental', comman
 #More Menu
 help_ = Menu(menubar, tearoff = 0)
 menubar.add_cascade(label ='More', menu = help_ , background=menu_background)
-help_.add_command(label ='Project', command = None,font=menu_font_size, background=menu_background)
-help_.add_command(label ='Contact', command = None,font=menu_font_size,background=menu_background)
+help_.add_command(label ='Project', command = lambda: Project(),font=menu_font_size, background=menu_background)
+help_.add_command(label ='Contact', command = lambda: contact(),font=menu_font_size,background=menu_background)
 help_.add_separator(background=menu_background)
-help_.add_command(label ='About', command = None,font=menu_font_size,background=menu_background)
+help_.add_command(label ='About', command = lambda: about(),font=menu_font_size,background=menu_background)
 
 #Help Version Menu
 help_ = Menu(menubar, tearoff = 0)
