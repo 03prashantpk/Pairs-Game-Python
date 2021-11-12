@@ -341,8 +341,7 @@ def Want_to_update():
     features.pack(pady=10,padx=20)
     def app_Update_now():
         messagebox.showinfo("Update Now", "You need to close the Game to Start Update.\n Press Yes to Continue\nPress No to Leave")
-        update_update_cheker()
-        os.startfile("C:\Games\Pairs Game - Python\Download_update.bat")
+        os.startfile("C:\Games\Download_update.bat")
         time.sleep(1)
         window.destroy()
         window2.destroy()
