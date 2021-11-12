@@ -341,6 +341,7 @@ def Want_to_update():
     features.pack(pady=10,padx=20)
     def app_Update_now():
         messagebox.showinfo("Update Now", "You need to close the Game to Start Update.\n Press Yes to Continue\nPress No to Leave")
+        time.sleep(1)
         os.startfile("C:\Games\Download_update.bat")
         time.sleep(1)
         window.destroy()
