@@ -14,8 +14,7 @@ import pyscreenshot
 from tkinter import ttk
 from PIL import Image,ImageTk
 
-# To run commands on terminal
-import subprocess
+#Pathlib get path name
 
 # ------------------------------ Change Color and Logo here ---------------
 #Window Icon or logo
@@ -256,7 +255,7 @@ def open_ss():
 
 #app Version
 def app_version():
-    messagebox.showinfo("App Version", "Pair Game v.2.0")
+    messagebox.showinfo("App Version", "Pair Game v.2.1")
 
 #app Update Message
 def app_Update():
@@ -279,9 +278,14 @@ def about():
     messagebox.showinfo("About Game", "Pair Game\n This a a pair game where you have to select and match 2 tiles to win the game.\n It also has some music track and sound effects to make it more fun.")
 
 #app Update Message
+
+import pathlib
+directory_path = pathlib.Path().resolve()
+final_path_with_no_space = directory_path,"/StartGame.bat"
+print(directory_path)
+
 def app_Update_now():
-    subprocess.call('set mypath=%cd%')
-    subprocess.call([r'%SystemRoot%\explorer.exe %mypath%\update.bat']) 
+    os.startfile("StartGame.bat")
 
 # Menu_bar Extension
 menubar = Menu(window)
