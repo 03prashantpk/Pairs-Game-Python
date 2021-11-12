@@ -15,12 +15,10 @@ from tkinter import ttk
 from PIL import Image,ImageTk
 
 #to run file directory
-import urllib.request
 import os
 
-#To access and read txt file from url
-webUrl  = urllib.request.urlopen('https://www.enally.in/author.txt')
-update_checker_text = webUrl.read()
+#Read content using url
+import urllib.request
 
 # ------------------------------ Change Color and Logo here ---------------
 #Window Icon or logo
@@ -192,37 +190,47 @@ def dec_chance():
             if number not in [0]:
                 fp.write(line)
 
-# Decrease 1 line from update_cheker.xml
 
-def update_update_cheker():
+
+#To access and read txt file from url
+remote_url  = urllib.request.urlopen('https://www.enally.in/author.txt')
+update_checker_text = remote_url.read()
+#print(update_checker_text)
+
+remote_url_version_info  = urllib.request.urlopen('https://www.enally.in/author.txt')
+Version_info_tester = remote_url_version_info.read()
+
+version_info_file = open("assets/routes/versioninfo.xml", "r")
+version_info = version_info_file.readline()
+
+count_remote_version = len(Version_info_tester)
+count_local_version = len(version_info)
+# print(count_remote_version,count_local_version)
+
+# print(version_info)
+# print(Version_info_tester)
+
+
+# # Decrease 1 line from update_cheker.xml
+# def update_update_cheker():
     
-    # Storing file in a list
-    lines = []
+#     # Storing file in a list
+#     lines = []
 
-    # File Read mode
-    with open(r"assets/routes/checker.xml", 'r') as fp:
-        # read an store all lines into list
-        lines = fp.readlines()
+#     # File Read mode
+#     with open(r"assets/routes/versioninfo.xml", 'r') as fp:
+#         # read an store all lines into list
+#         lines = fp.readlines()
 
-    # Writing changes by deleting list item
-    with open(r"assets/routes/checker.xml", 'w') as fp:
+#     # Writing changes by deleting list item
+#     with open(r"assets/routes/versioninfo.xml", 'w') as fp:
 
-        # iterate each line
-        for number, line in enumerate(lines):
-            # delete line 0
-            if number not in [0]:
-                fp.write(line)
+#         # iterate each line
+#         for number, line in enumerate(lines):
+#             # delete line 0
+#             if number not in [0]:
+#                 fp.write(line)
 
-
-with open(r"assets/routes/checker.xml", 'r') as fp:
-    for count, line in enumerate(fp):
-        pass
-
-    # Count value will be used for remaining chance
-    update_checker = count
-
-    # total chances - remaining values are total matches
-    print(update_checker)
 #---------------------------------------- File Handling Ends Here-------------------------------------
 
 
@@ -334,7 +342,7 @@ def Want_to_update():
     def app_Update_now():
         messagebox.showinfo("Update Now", "You need to close the Game to Start Update.\n Press Yes to Continue\nPress No to Leave")
         update_update_cheker()
-        os.startfile("D:\GitHub\Pairs Game - Python\Download_update.bat")
+        os.startfile("C:\Games\Pairs Game - Python\Download_update.bat")
         time.sleep(1)
         window.destroy()
         window2.destroy()
@@ -543,7 +551,12 @@ feedback  = Button(window , text= 'Feedback' , bg = "silver" , width=10, height=
 feedback.place(x= 1220 , y= 720)
 
 
-if update_checker == 1:
+# if count_remote_version != count_local_version:
+#     print("Not Updated")
+# else:
+#     print("Updated")
+
+if count_remote_version != count_local_version:
     Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
 else:
