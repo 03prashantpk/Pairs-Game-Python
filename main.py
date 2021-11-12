@@ -14,6 +14,9 @@ import pyscreenshot
 from tkinter import ttk
 from PIL import Image,ImageTk
 
+# To run commands on terminal
+import subprocess
+
 # ------------------------------ Change Color and Logo here ---------------
 #Window Icon or logo
 logo = "assets/images/enally.ico"
@@ -259,18 +262,26 @@ def app_version():
 def app_Update():
     messagebox.showinfo("App Update", "You are currently up to date.\n Please Run update.bat to update in future.")
 
+#App developer and Project info
 def App_developer():
     messagebox.showinfo("App Developer", "This App is developed for Project.\n Work Given by - Moin Hasan\n Please Run update.bat to update in future.")
-  
+
+#Project info  
 def Project():
     messagebox.showinfo("Other Projects", "Our Other App\n 1. Multi Image Downloader - Using Python \n 2. Pair Game - Python \n 3. Music App - Python")
 
+#Contact Details
 def contact():
     messagebox.showinfo("Contact", "You can contact us at.\n Email: admin@enally.in \n Phone: 96120xxxxx.")
 
+#about us
 def about():
     messagebox.showinfo("About Game", "Pair Game\n This a a pair game where you have to select and match 2 tiles to win the game.\n It also has some music track and sound effects to make it more fun.")
-  
+
+#app Update Message
+def app_Update_now():
+    subprocess.call('set mypath=%cd%')
+    subprocess.call([r'%SystemRoot%\explorer.exe %mypath%\update.bat']) 
 
 # Menu_bar Extension
 menubar = Menu(window)
@@ -301,8 +312,9 @@ help_.add_command(label ='About', command = lambda: about(),font=menu_font_size,
 #Help Version Menu
 help_ = Menu(menubar, tearoff = 0)
 menubar.add_cascade(label ='Help', menu = help_ , background=menu_background)
-help_.add_command(label ='Check Update', command =lambda:  app_Update()(),font=menu_font_size, background=menu_background)
-help_.add_command(label ='App Version', command =lambda:  app_version(),font=menu_font_size,background=menu_background)
+help_.add_command(label ='Check Update', command =lambda: app_Update(),font=menu_font_size, background=menu_background)
+help_.add_command(label ='App Version', command =lambda: app_version(),font=menu_font_size,background=menu_background)
+help_.add_command(label ='Update Now', command =lambda: app_Update_now(),font=menu_font_size,background=menu_background)
 help_.add_separator(background=menu_background)
 help_.add_command(label ='Developer', command = lambda: App_developer(),font=menu_font_size,background=menu_background)
 
