@@ -1,9 +1,9 @@
 # Pair Game - Python
 
 This is a Pair Game developed by Python and Pyhthon GUI. In this game user can click 2 tiles consecutively and it will tell you if your
-Click paired or not.  <br><br>
-If it Pairs a cheers music will play if it doesn't a fail music will play. <br><br>
-And on complete match Victory sound will play.<br><br>
+Click paired or not.  <br>
+If it Pairs a cheers music will play if it doesn't a fail music will play. <br>
+And on complete match Victory sound will play.<br>
 It also has some app update, version and etc function Which allow users to update and track game version. 
 
 
