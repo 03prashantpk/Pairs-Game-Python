@@ -4,9 +4,13 @@ import random
 from tkinter import messagebox
 import tkinter as tk
 import time
+# For Audio
 import pygame
+#For  Menu bar
 from tkinter.filedialog import askopenfilename
+#For Screenshot
 import pyscreenshot
+#For Background Image
 from tkinter import ttk
 from PIL import Image,ImageTk
 
@@ -80,28 +84,34 @@ menu_font_size = ("Arial 12")
 #------------------------------- initialization and function of - pygame for audio Here ---------------
 pygame.mixer.init()
 
-def opening():
-     pygame.mixer.music.load("assets/music/game_continue_2.mp3")
-     pygame.mixer.music.play(loops=3)
-opening()
-
-
+# Music track
 def change_music(music_next):
     if music_next == 1:
         def opening():
-            pygame.mixer.music.load("assets/music/edited_background_effect1.mp3")
+            pygame.mixer.music.load("assets/music/MrBean_piano.mp3")
+            pygame.mixer.music.play(loops=3)
+        opening()
+    
+    elif music_next == 2:
+        def opening():
+            pygame.mixer.music.load("assets/music/noddymusci.mp3")
             pygame.mixer.music.play(loops=3)
         opening()
 
+    elif music_next == 3:
+        def opening():
+            pygame.mixer.music.load("assets/music/soha.mp3")
+            pygame.mixer.music.play(loops=3)
+        opening()
 
 def fail():
-    pygame.mixer.music.load("assets/music/fail.mp3")
+    pygame.mixer.music.load("assets/music/Fail.mp3")
     pygame.mixer.music.play(loops=0)
     messagebox.showinfo("Incorrect!", "Oh! No missed try again")
 #fail()
 
 def win():
-    pygame.mixer.music.load("assets/music/Tada.mp3")
+    pygame.mixer.music.load("assets/music/win.mp3")
     pygame.mixer.music.play(loops=0)
     status_label.config(text=" Its A Match! ", bg=message_background, fg=message_foreground ,font=("Arial 18"))
 #win()
@@ -151,8 +161,7 @@ def remaining_chances():
     if total_chance_remaining == 0:
         print("Game Over")
         messagebox.showinfo("Game Over!", "Hurrey! You won")
-    remaining_chance_label.config(text=total_match, bg=message_background, fg=message_foreground ,font=("Arial 18"))
-    
+    remaining_chance_label.config(text=total_match, bg=message_background, fg=message_foreground ,font=("Arial 22"))
 
 
 # Deleting total chance list one by one on each pair of matches
@@ -187,17 +196,49 @@ window.geometry("1350x800")
 
 #random wallpaper Choice
 wallpaper_no = random.randint(0, 3)
+
+#--- Choice 1
 if wallpaper_no == 0:
     wall_now= "assets/images/bg4.png"
+    tile_background = "#FFB6C1"
+    tile_foreground = "#F0F6FB"
+    def opening():
+        pygame.mixer.music.load("assets/music/Mrbean_bg1.mp3")
+        pygame.mixer.music.play(loops=3)
+    opening()
+
+#--- Choice 2
 elif wallpaper_no == 1:
     wall_now= "assets/images/bg1.png"
+    tile_background = "#89CEEF"
+    tile_foreground = "#F0F6FB"
+    def opening():
+        pygame.mixer.music.load("assets/music/Mrbean_bg1.mp3")
+        pygame.mixer.music.play(loops=3)
+    opening()
+
+#--- Choice 3
 elif wallpaper_no == 2:
     wall_now= "assets/images/bg2.png"
-elif wallpaper_no == 3:
-    wall_now= "assets/images/bg3.png"
+    tile_background = "#00693E"
+    tile_foreground = "#F0F6FB"
+    def opening():
+        pygame.mixer.music.load("assets/music/jungle.mp3")
+        pygame.mixer.music.play(loops=3)
+    opening()
 
-bg_window = PhotoImage(file=wall_now)
-l = Label(window , image= bg_window)
+#--- Choice 4
+elif wallpaper_no == 3:
+    wall_now= "assets/images/bg5.png"
+    tile_background = "#00693E"
+    tile_foreground = "#F0F6FB"
+    def opening():
+        pygame.mixer.music.load("assets/music/Ninjabg2.mp3")
+        pygame.mixer.music.play(loops=3)
+    opening()
+
+window_background = PhotoImage(file=wall_now)
+l = Label(window , image= window_background)
 l.place(x = 0 , y = 20 , relwidth = 1 , relheight = 1)
 
 #screenshot
@@ -210,8 +251,17 @@ def open_ss():
     image.save("assets/screenshots/Pair_Game.png")
     image.show()
 
+#app Version
+def app_version():
+    messagebox.showinfo("App Version", "Pair Game v.2.0")
 
-    
+#app Update Message
+def app_Update():
+    messagebox.showinfo("App Update", "You are currently up to date.\n Please Run update.bat to update in future.")
+
+def App_developer():
+    messagebox.showinfo("App Developer", "This App is developed for Project.\n Work Given by - Moin Hasan\n Please Run update.bat to update in future.")
+  
 
 # Menu_bar Extension
 menubar = Menu(window)
@@ -228,9 +278,9 @@ file.add_command(label ='Exit', command = window.destroy, font=menu_font_size, b
 #Adding Music
 edit = Menu(menubar, tearoff = 0)
 menubar.add_cascade(label ='Music', menu = edit,font=menu_font_size)
-edit.add_command(label ='Music 1', command = lambda: change_music(1),font=menu_font_size, background=menu_background)
-edit.add_command(label ='Mixed By Solemate', command = None,font=menu_font_size, background=menu_background)
-edit.add_command(label ='War Epic Beats', command = None,font=menu_font_size, background=menu_background)
+edit.add_command(label ='Mr. Bean Pino Music', command = lambda: change_music(1),font=menu_font_size, background=menu_background)
+edit.add_command(label ='Noddy Music', command = lambda: change_music(2),font=menu_font_size, background=menu_background)
+edit.add_command(label ='SOUHILA - Trap Oriental Beat x Balkan Oriental', command = lambda: change_music(3),font=menu_font_size, background=menu_background)
 
 #More Menu
 help_ = Menu(menubar, tearoff = 0)
@@ -243,13 +293,13 @@ help_.add_command(label ='About', command = None,font=menu_font_size,background=
 #Help Version Menu
 help_ = Menu(menubar, tearoff = 0)
 menubar.add_cascade(label ='Help', menu = help_ , background=menu_background)
-help_.add_command(label ='Check Update', command = None,font=menu_font_size, background=menu_background)
-help_.add_command(label ='App Version', command = None,font=menu_font_size,background=menu_background)
+help_.add_command(label ='Check Update', command =lambda:  app_Update()(),font=menu_font_size, background=menu_background)
+help_.add_command(label ='App Version', command =lambda:  app_version(),font=menu_font_size,background=menu_background)
 help_.add_separator(background=menu_background)
-help_.add_command(label ='Developer', command = None,font=menu_font_size,background=menu_background)
+help_.add_command(label ='Developer', command = lambda: App_developer(),font=menu_font_size,background=menu_background)
 
 #Heading (Game Name)
-credit_label = Label(window, width=100, text="Pairs Game - K20BN (G2)" ,font=("'Helvetica 18") ,background=heading , foreground=fg)
+credit_label = Label(window, width=100, text="Pairs Game - K20BN (G2)" ,font=("'Helvetica 28") ,background=heading , foreground=fg)
 credit_label.pack(pady=0)
 
 
@@ -258,7 +308,7 @@ credit_label.pack(pady=0)
 def print_player_name():
     global print_player_name
     print_player_name = inputtxt.get(1.0, "end-1c")
-    playing.config( bg=player_name_background, width=25, fg=player_name_foreground,font=("'Helvetica 13"),text = "Player - "+ print_player_name)
+    playing.config( bg=player_name_background, width=28, fg=player_name_foreground,font=("'Helvetica 13"),text = "Player - "+ print_player_name)
 
     #Hiding widgets using pack_forget()
     player_name.pack_forget()
@@ -310,7 +360,6 @@ bcontainer.pack(pady=20,padx=0)
 count = 0
 answer_list = []
 answer_dict = {}
-counts = 0
 
 #function for button_click
 def button_click(b, number):
@@ -354,7 +403,7 @@ def button_click(b, number):
         
 
         else:
-            status_label.config(text=" No Match! Try Again " ,fg=No_match_message_foreground,bg=No_match_message_background,font=("Arial 18"))
+            status_label.config(text=" No Match! Try Again " ,fg=No_match_message_foreground,bg=No_match_message_background,font=("Arial 22"))
             count = 0
             answer_list = []
 
@@ -362,8 +411,7 @@ def button_click(b, number):
             fail()
             time.sleep(2)
             opening()
-            
-            
+
 
             for key in answer_dict:
                 key["text"] = " "
@@ -402,10 +450,10 @@ b9.grid(row=2, column=1)
 b10.grid(row=2, column=2)
 b11.grid(row=2, column=3)
 
-remaining_chance_label = Label(window, text="Hey, You Can win this", background=footer_label_W,foreground=footer_label_f ,width='24')
+remaining_chance_label = Label(window,font="18", text="Hey, You Can win this", background=footer_label_W,foreground=footer_label_f ,width='24')
 remaining_chance_label.pack(pady=2)
 
-status_label = Label(window, text="Game Status: Not Started Yet", background=footer_label,foreground=footer_fg ,width='24')
+status_label = Label(window, font="18", text="Game Status: Not Started Yet", background=footer_label,foreground=footer_fg ,width='24')
 status_label.pack(pady=20)
 
 #---------------------------------  Main logic Starts here   -----------------------------------------
