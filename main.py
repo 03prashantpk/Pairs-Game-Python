@@ -329,7 +329,7 @@ def Want_to_update():
     update_available = Label(window2,text="Update Available",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
     update_available.pack(pady=10)
 
-    features = Label(window2,background="#B7C5D5",text=update_checker, justify= 'left')
+    features = Label(window2,background="#B7C5D5",text=update_checker_text, justify= 'left')
     features.pack(pady=10,padx=20)
     def app_Update_now():
         messagebox.showinfo("Update Now", "You need to close the Game to Start Update.\n Press Yes to Continue\nPress No to Leave")
