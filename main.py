@@ -356,7 +356,6 @@ matches = [1,1,2,2,3,3,4,4,5,5,6,6]
 random.shuffle(matches)
 print(matches)
 
-
 #Creating Button Frame
 bcontainer = Frame(window)
 bcontainer.config(width=200, height=200)
@@ -424,7 +423,6 @@ def button_click(b, number):
             for key in answer_dict:
                 key["text"] = " "
             answer_dict = {}
-
 
 #Creating Buttons
 b0 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, command=lambda: button_click(b0, 0) , state = "normal", background =tile_background , foreground=tile_foreground)
