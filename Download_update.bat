@@ -1,4 +1,7 @@
 @Echo OFF
+
+del /q Pairs-Game-Python
+
 Echo =======================================================
 Echo       Developed by - Prashant Kumar
 Echo =======================================================
