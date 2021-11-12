@@ -23,7 +23,6 @@ pause
 
 @echo off
 cd Pairs-Game-Python/
-start startGame.bat
-
 start success.bat
+start startGame.bat
 exit
