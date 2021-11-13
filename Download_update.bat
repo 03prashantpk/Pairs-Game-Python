@@ -1,6 +1,9 @@
 @Echo OFF
+timeout 10
 
-del /q Pairs-Game-Python
+python Helper.py %*
+
+timeout 5
 
 Echo =======================================================
 Echo       Developed by - Prashant Kumar
