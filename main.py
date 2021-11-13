@@ -193,20 +193,38 @@ def dec_chance():
 
 
 #To access and read txt file from url
-remote_url  = urllib.request.urlopen('https://www.enally.in/author.txt')
-update_checker_text = remote_url.read()
-#print(update_checker_text)
 
-remote_url_version_info  = urllib.request.urlopen('https://www.enally.in/author.txt')
-Version_info_tester = remote_url_version_info.read()
+# Read Update text
+remote_url  = urllib.request.urlopen('https://www.enally.in/PairGame/WhatsNew.xml')
+WhatsNewInUpdate = remote_url.read()
 
+# Read Version Number
+Current_version_no  = urllib.request.urlopen('https://www.enally.in/PairGame/CurrentVersion.xml')
+Current_version_number = Current_version_no.read()
+
+#Version Info File and it use to confirm updates (using count function here...)
+remote_url_version_info  = urllib.request.urlopen('https://www.enally.in/PairGame/versioninfo.xml')
+Version_info_remote = remote_url_version_info.read()
+
+# Reading Local files data to match and print it on GUI
+
+# whats New in Update
+WhatsNew = open("assets/routes/WhatsNew.xml", "r")
+WhatsNew_Message = WhatsNew.readline()
+
+# Pair Game Version v.N.N
+CurrentVersionNumber = open("assets/routes/CurrentVersion.xml", "r")
+CurrentVersionNumber_V = WhatsNew.readline()
+
+# To match files on every update
 version_info_file = open("assets/routes/versioninfo.xml", "r")
-version_info = version_info_file.readline()
+Version_info_local = version_info_file.readline()
 
-count_remote_version = len(Version_info_tester)
-count_local_version = len(version_info)
+Version_info_remote = len(Version_info_tester)
+CurrentVersionNumber_V = len(version_info)
+
+
 # print(count_remote_version,count_local_version)
-
 # print(version_info)
 # print(Version_info_tester)
 
@@ -281,9 +299,9 @@ def open_ss():
 
 #app Version
 def app_version():
-    messagebox.showinfo("App Version", "Pair Game v.2.1")
+    messagebox.showinfo("App Version", Current_version_number)
 
-#app Update Message
+#app Update Message (Not in use anymore)
 def app_Update():
     messagebox.showinfo("App Update", "You are currently up to date.\n Please Run update.bat to update in future.")
 
@@ -309,7 +327,7 @@ def about():
 #app Update Message
 def Want_to_update():
     window2 = Tk()
-    window2.title('Update Available')
+    window2.title('Update Window')
     window2.geometry("500x300")
     window2.config(background="#B7C5D5")
     window2.iconbitmap(logo)
@@ -322,25 +340,27 @@ def Want_to_update():
             button = Button(window2, text='Happy Gaming', width="55", height="28", command=None,background=footer_label,foreground=footer_fg)
             button.pack(pady=70, padx=150)
     
-
     if count_remote_version != count_local_version:
         header_message = "Update Available"
         
     else:
         header_message = "You're Update to date"
         
-
+    # Update Window Header Text
     update_available = Label(window2,text=header_message,font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
     update_available.pack(pady=10)
 
-    features = Label(window2,background="#B7C5D5",text=update_checker_text, justify= 'left')
+    #Update Window What's New In update text
+    features = Label(window2,background="#B7C5D5",text=WhatsNewInUpdate, justify= 'left')
     features.pack(pady=10,padx=20)
+
     def app_Update_now():
         messagebox.showinfo("Update Now", "You need to close the Game to Start Update.\n Press Yes to Continue\nPress No to Leave")
         time.sleep(1)
         os.startfile("C:\Games\Download_update.bat")
         window.destroy()
         window2.destroy()
+
     #fatching Download Button
     if count_remote_version != count_local_version:
         fatch_download_button()
@@ -380,7 +400,7 @@ help_.add_command(label ='About', command = lambda: about(),font=menu_font_size,
 #Help Version Menu
 help_ = Menu(menubar, tearoff = 0)
 menubar.add_cascade(label ='Help', menu = help_ , background=menu_background)
-help_.add_command(label ='Check Update', command =lambda: app_Update(),font=menu_font_size, background=menu_background)
+# help_.add_command(label ='Check Update', command =lambda: app_Update(),font=menu_font_size, background=menu_background)
 help_.add_command(label ='App Version', command =lambda: app_version(),font=menu_font_size,background=menu_background)
 help_.add_command(label ='Update Now', command = Want_to_update,font=menu_font_size,background=menu_background)
 help_.add_separator(background=menu_background)
