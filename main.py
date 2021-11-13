@@ -210,6 +210,7 @@ count_local_version = len(version_info)
 # print(version_info)
 # print(Version_info_tester)
 
+
 #---------------------------------------- File Handling Ends Here-------------------------------------
 
 
@@ -313,10 +314,21 @@ def Want_to_update():
     window2.config(background="#B7C5D5")
     window2.iconbitmap(logo)
 
+    def fatch_download_button():
+            button = Button(window2, text='Download Update', width="55", height="28", command=app_Update_now,background=footer_label,foreground=footer_fg)
+            button.pack(pady=70, padx=150)
+
+    def fatch_no_update_button():
+            button = Button(window2, text='Happy Gaming', width="55", height="28", command=None,background=footer_label,foreground=footer_fg)
+            button.pack(pady=70, padx=150)
+    
+
     if count_remote_version != count_local_version:
         header_message = "Update Available"
+        
     else:
         header_message = "You're Update to date"
+        
 
     update_available = Label(window2,text=header_message,font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
     update_available.pack(pady=10)
@@ -329,13 +341,13 @@ def Want_to_update():
         os.startfile("C:\Games\Download_update.bat")
         window.destroy()
         window2.destroy()
-
+    #fatching Download Button
     if count_remote_version != count_local_version:
-        Update_available_btn  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
-        Update_available_btn.place(x= 960 , y= 720)
+        fatch_download_button()
     else:
-        Update_available_btn  = Button(window , text= "Version: 2.1", bg = "silver" , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
-        Update_available_btn.place(x= 960 , y= 720)
+        fatch_no_update_button()
+    
+    window.mainloop()
 
 
 
@@ -375,7 +387,7 @@ help_.add_separator(background=menu_background)
 help_.add_command(label ='Developer', command = lambda: App_developer(),font=menu_font_size,background=menu_background)
 
 #Heading (Game Name)
-credit_label = Label(window, width=100, text="Pairs Game - K20BN" ,font=("'Helvetica 28") ,background=heading , foreground=fg)
+credit_label = Label(window, width=100, text="Pairs Game - K20BN (G2)" ,font=("'Helvetica 28") ,background=heading , foreground=fg)
 credit_label.pack(pady=0)
 
 
@@ -545,9 +557,18 @@ feedback.place(x= 1220 , y= 720)
 if count_remote_version != count_local_version:
     Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
+
+    #Exit Button
+    exit_the_game  = Button(window , text= "Exit", width=8, height=1, command=window.destroy, font="2",background=footer_label,foreground=footer_fg)
+    exit_the_game.place(x= 60 , y= 720)
+
 else:
     Update_available  = Button(window , text= "Version: 2.1", bg = "silver" , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
+
+    #exit Button
+    exit_the_game  = Button(window , text= "Exit", width=8, height=1, command=window.destroy, font="2",background=footer_label,foreground=footer_fg)
+    exit_the_game.place(x= 60 , y= 720)
 
 #---------------------------------  Main logic Starts here   -----------------------------------------
 
