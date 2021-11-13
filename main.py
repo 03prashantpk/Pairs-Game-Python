@@ -195,33 +195,33 @@ def dec_chance():
 #To access and read txt file from url
 
 # Read Update text
-remote_url  = urllib.request.urlopen('https://www.enally.in/PairGame/WhatsNew.xml')
+remote_url  = urllib.request.urlopen('https://www.enally.in/PairGame/WhatsNew.txt')
 WhatsNewInUpdate = remote_url.read()
 
 # Read Version Number
-Current_version_no  = urllib.request.urlopen('https://www.enally.in/PairGame/CurrentVersion.xml')
+Current_version_no  = urllib.request.urlopen('https://www.enally.in/PairGame/CurrentVersion.txt')
 Current_version_number = Current_version_no.read()
 
 #Version Info File and it use to confirm updates (using count function here...)
-remote_url_version_info  = urllib.request.urlopen('https://www.enally.in/PairGame/versioninfo.xml')
+remote_url_version_info  = urllib.request.urlopen('https://www.enally.in/PairGame/versioninfo.txt')
 Version_info_remote = remote_url_version_info.read()
 
 # Reading Local files data to match and print it on GUI
 
 # whats New in Update
-WhatsNew = open("assets/routes/WhatsNew.xml", "r")
+WhatsNew = open("assets/routes/WhatsNew.txt", "r")
 WhatsNew_Message = WhatsNew.readline()
 
 # Pair Game Version v.N.N
-CurrentVersionNumber = open("assets/routes/CurrentVersion.xml", "r")
+CurrentVersionNumber = open("assets/routes/CurrentVersion.txt", "r")
 CurrentVersionNumber_V = WhatsNew.readline()
 
 # To match files on every update
-version_info_file = open("assets/routes/versioninfo.xml", "r")
+version_info_file = open("assets/routes/versioninfo.txt", "r")
 Version_info_local = version_info_file.readline()
 
-Version_info_remote = len(Version_info_tester)
-CurrentVersionNumber_V = len(version_info)
+Version_info_remote_len = len(Version_info_remote)
+CurrentVersionNumber_Len = len(CurrentVersionNumber_V)
 
 
 # print(count_remote_version,count_local_version)
@@ -340,7 +340,7 @@ def Want_to_update():
             button = Button(window2, text='Happy Gaming', width="55", height="28", command=None,background=footer_label,foreground=footer_fg)
             button.pack(pady=70, padx=150)
     
-    if count_remote_version != count_local_version:
+    if Version_info_remote_len != CurrentVersionNumber_Len:
         header_message = "Update Available"
         
     else:
@@ -362,7 +362,7 @@ def Want_to_update():
         window2.destroy()
 
     #fatching Download Button
-    if count_remote_version != count_local_version:
+    if Version_info_remote_len != CurrentVersionNumber_Len:
         fatch_download_button()
     else:
         fatch_no_update_button()
@@ -574,7 +574,7 @@ feedback.place(x= 1220 , y= 720)
 # else:
 #     print("Updated")
 
-if count_remote_version != count_local_version:
+if Version_info_remote_len != CurrentVersionNumber_Len:
     Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
 
