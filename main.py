@@ -13,10 +13,8 @@ import pyscreenshot
 #For Background Image
 from tkinter import ttk
 from PIL import Image,ImageTk
-
 #to run file directory
 import os
-
 #Read content using url
 import urllib.request
 
@@ -147,8 +145,7 @@ with open("assets/routes/chance.xml", 'w+') as f:
     print("Game Started Successfully")
   
 # close the file
-f.close()
-
+f.close() 
 
 # Counting Total Match and Total Chance
 def remaining_chances():
@@ -167,6 +164,7 @@ def remaining_chances():
     if total_chance_remaining == 0:
         print("Game Over")
         messagebox.showinfo("Game Over!", "Hurrey! You won")
+
     remaining_chance_label.config(text=total_match, bg=message_background, fg=message_foreground ,font=("Arial 22"))
 
 
@@ -189,7 +187,6 @@ def dec_chance():
             # delete line 0
             if number not in [0]:
                 fp.write(line)
-
 
 
 #To access and read txt file from url
@@ -220,14 +217,14 @@ CurrentVersionNumber_V = WhatsNew.readline()
 version_info_file = open("assets/routes/versioninfo.txt", "r")
 Version_info_local = version_info_file.readline()
 
-print("Local Data",Version_info_local)
-print("Remove data ",Version_info_remote)
+# print("Local Data",Version_info_local)
+# print("Remote data ",Version_info_remote)
 
 Version_info_remote_len = len(Version_info_remote)
 CurrentVersionNumber_Len = len(Version_info_local)
 
-print("Local Data",CurrentVersionNumber_Len)
-print("Remove data ",Version_info_remote_len)
+print("Local Data:",CurrentVersionNumber_Len)
+print("Remote data: ",Version_info_remote_len)
 
 
 # print(count_remote_version,count_local_version)
@@ -289,11 +286,12 @@ elif wallpaper_no == 3:
         pygame.mixer.music.play(loops=3)
     opening()
 
+# Background image setup
 window_background = PhotoImage(file=wall_now)
 l = Label(window , image= window_background)
 l.place(x = 0 , y = 20 , relwidth = 1 , relheight = 1)
 
-#screenshot
+#Screenshot
 def screen_shot():
     image = pyscreenshot.grab()
     image.save("assets/screenshots/Pair_Game.png")
@@ -305,7 +303,31 @@ def open_ss():
 
 #app Version
 def app_version():
-    messagebox.showinfo("App Version", Current_version_number)
+    window4 = Tk()
+    window4.title('App Version')
+    window4.geometry("500x300")
+    window4.config(background="#B7C5D5")
+    window4.iconbitmap(logo)
+
+    def viewAppversion():
+            button = Button(window4, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
+            button.pack(pady=80, padx=190)
+        
+    # Update Window Header Text
+    appversion_info_win = Label(window4,text="Game Version",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win.pack(pady=10)
+
+    #Update Window What's New In update text
+    version_info_text_win = Label(window4,background="#B7C5D5",text=Current_version_number, justify= 'center', font=(10))
+    version_info_text_win.pack(pady=10,padx=20)
+
+    def Close_about():
+        window4.destroy()
+
+    #fatching Download Button
+    viewAppversion()
+    
+    window.mainloop()
 
 #app Update Message (Not in use anymore)
 def app_Update():
@@ -313,23 +335,117 @@ def app_Update():
 
 #App developer and Project info
 def App_developer():
-    messagebox.showinfo("App Developer", "This App is developed for Project.\n Work Given by - Moin Hasan\n Please Run update.bat to update in future.")
+    window5 = Tk()
+    window5.title('Our Other Projects')
+    window5.geometry("500x300")
+    window5.config(background="#B7C5D5")
+    window5.iconbitmap(logo)
+
+    def viewAppversion():
+            button = Button(window5, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
+            button.pack(pady=50, padx=190)
+        
+    # Update Window Header Text
+    appversion_info_win = Label(window5,text="App Developers",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win.pack(pady=10)
+
+    #Update Window What's New In update text
+    version_info_text_win = Label(window5,background="#B7C5D5",text="This is a project work. Given by University\nInstructor Name: Sir. Moin Hasan\n\n More Information will be updated soon", justify= 'left',font=('Times New Roman' , 12 , ))
+    version_info_text_win.pack(pady=10,padx=20)
+
+    def Close_about():
+        window5.destroy()
+
+    #fatching Download Button
+    viewAppversion()
+    
+    window.mainloop()
 
 #Project info  
 def Project():
-    messagebox.showinfo("Other Projects", "Our Other App\n 1. Multi Image Downloader - Using Python \n 2. Pair Game - Python \n 3. Music App - Python")
+    window5 = Tk()
+    window5.title('Our Other Projects')
+    window5.geometry("500x300")
+    window5.config(background="#B7C5D5")
+    window5.iconbitmap(logo)
+
+    def viewAppversion():
+            button = Button(window5, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
+            button.pack(pady=50, padx=190)
+        
+    # Update Window Header Text
+    appversion_info_win = Label(window5,text="More Projects",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win.pack(pady=10)
+
+    #Update Window What's New In update text
+    version_info_text_win = Label(window5,background="#B7C5D5",text="Our Other App\n 1. Multi Image Downloader - Using Python \n 2. Pair Game - Python \n 3. Music App - Python", justify= 'left',font=('Times New Roman' , 13 , ))
+    version_info_text_win.pack(pady=10,padx=20)
+
+    def Close_about():
+        window5.destroy()
+
+    #fatching Download Button
+    viewAppversion()
+    
+    window.mainloop()
 
 #Contact Details
 def contact():
-    messagebox.showinfo("Contact", "You can contact us at.\n Email: admin@enally.in \n Phone: 96120xxxxx.")
+    window5 = Tk()
+    window5.title('Contact Info')
+    window5.geometry("500x300")
+    window5.config(background="#B7C5D5")
+    window5.iconbitmap(logo)
+
+    def viewAppversion():
+            button = Button(window5, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
+            button.pack(pady=60, padx=190)
+        
+    # Update Window Header Text
+    appversion_info_win = Label(window5,text="Reach Us At",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win.pack(pady=10)
+
+    #Update Window What's New In update text
+    version_info_text_win = Label(window5,background="#B7C5D5",text="Our (Team) Contact information are:\nEmail: admin@enally.in\nPhone: 961209XXXX", justify= 'left' ,font=('Times New Roman' , 13 , ))
+    version_info_text_win.pack(pady=10,padx=20)
+
+    def Close_about():
+        window5.destroy()
+
+    #fatching Download Button
+    viewAppversion()
+    
+    window.mainloop()
 
 #about us
 def about():
-    messagebox.showinfo("About Game", "Pair Game\n This a a pair game where you have to select and match 2 tiles to win the game.\n It also has some music track and sound effects to make it more fun.")
+    window3 = Tk()
+    window3.title('About')
+    window3.geometry("500x300")
+    window3.config(background="#B7C5D5")
+    window3.iconbitmap(logo)
 
+    def fatch_download_button():
+            button = Button(window3, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
+            button.pack(pady=55, padx=190)
+        
+    # Update Window Header Text
+    about_title_win = Label(window3,text="About",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    about_title_win.pack(pady=10)
+
+    #Update Window What's New In update text
+    features = Label(window3,background="#B7C5D5",text="Pair Game. \nDeveloped for Childern above 3+ years. \nCan help to improve memory power. \n \nIt has exciting background music to keep children engaged.", justify= 'left')
+    features.pack(pady=10,padx=20)
+
+    def Close_about():
+        window3.destroy()
+
+    #fatching Download Button
+    fatch_download_button()
+    
+    window.mainloop()
 
 #function on clicking update buttons
-
 #app Update Message
 def Want_to_update():
     window2 = Tk()
@@ -343,8 +459,8 @@ def Want_to_update():
             button.pack(pady=55, padx=150)
 
     def fatch_no_update_button():
-            button = Button(window2, text='Happy Gaming', width="55", height="28", command=None,background=footer_label,foreground=footer_fg)
-            button.pack(pady=55, padx=150)
+            button = Button(window2, text='Cose', width="55", height="28", command=Close_btn,background=footer_label,foreground=footer_fg)
+            button.pack(pady=55, padx=190)
     
     if Version_info_remote_len != CurrentVersionNumber_Len:
         header_message = "Update Available"
@@ -357,14 +473,17 @@ def Want_to_update():
     update_available.pack(pady=10)
 
     #Update Window What's New In update text
-    features = Label(window2,background="#B7C5D5",text=WhatsNewInUpdate, justify= 'left')
-    features.pack(pady=10,padx=20)
+    features = Label(window2,background="#B7C5D5",text=WhatsNewInUpdate, justify= 'left', font=('Times New Roman', 11,))
+    features.pack(pady=9,padx=20)
 
     def app_Update_now():
-        messagebox.showinfo("Update Now", "You need to close the Game to Start Update.\n Press Yes to Continue\nPress No to Leave")
+        messagebox.showinfo("Update Now", "Your Game Will Restart")
         time.sleep(1)
         os.startfile("C:\Games\Download_update.bat")
         window.destroy()
+        window2.destroy()
+    
+    def Close_btn():
         window2.destroy()
 
     #fatching Download Button
@@ -374,7 +493,6 @@ def Want_to_update():
         fatch_no_update_button()
     
     window.mainloop()
-
 
 
 # Menu_bar Extension
@@ -401,7 +519,7 @@ menubar.add_cascade(label ='More', menu = help_ , background=menu_background)
 help_.add_command(label ='Project', command = lambda: Project(),font=menu_font_size, background=menu_background)
 help_.add_command(label ='Contact', command = lambda: contact(),font=menu_font_size,background=menu_background)
 help_.add_separator(background=menu_background)
-help_.add_command(label ='About', command = lambda: about(),font=menu_font_size,background=menu_background)
+help_.add_command(label ='About', command = about,font=menu_font_size,background=menu_background)
 
 #Help Version Menu
 help_ = Menu(menubar, tearoff = 0)
@@ -450,7 +568,7 @@ printButton.pack(pady=4)
 playing = tk.Label(window, text = "", width=0, height=0, background=default_text_bg)
 playing.pack(pady=20)
 
-# ---------------------------------- windows Icons and buttons functions assigned Ends here --------
+# ---------------------------------- windows Icons and buttons functions assigned Ends here -----------
 
 
 #---------------------------------  Main logic Starts here   -----------------------------------------
@@ -460,7 +578,7 @@ matches = [1,1,2,2,3,3,4,4,5,5,6,6]
 
 #Shuffle Matches
 random.shuffle(matches)
-print(matches)
+print("Pair List\n",matches)
 
 #Creating Button Frame
 bcontainer = Frame(window)
@@ -491,7 +609,7 @@ def button_click(b, number):
         #INCREMENT counter
         count +=1
 
-        print(answer_list)
+        print("Echo click tile:",answer_list)
         #print(answer_dict)
 
     # Correct or not?
@@ -530,7 +648,7 @@ def button_click(b, number):
                 key["text"] = " "
             answer_dict = {}
 
-#Creating Buttons
+# Creating Buttons with var (bn)
 b0 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, command=lambda: button_click(b0, 0) , state = "normal", background =tile_background , foreground=tile_foreground)
 b1 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, command=lambda: button_click(b1, 1) , state = "normal", background =tile_background , foreground=tile_foreground)
 b2 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, command=lambda: button_click(b2, 2) , state = "normal", background =tile_background , foreground=tile_foreground)
@@ -546,7 +664,7 @@ b9 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, comma
 b10 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, command=lambda: button_click(b10, 10) , state = "normal", background =tile_background , foreground=tile_foreground)
 b11 = Button(bcontainer, text=" ",font=("Helvetica",20), height=3, width=6, command=lambda: button_click(b11, 11) , state = "normal", background =tile_background , foreground=tile_foreground)
 
-#grid buttons
+# Grid buttons
 b0.grid(row=0, column=0)
 b1.grid(row=0, column=1)
 b2.grid(row=0, column=2)
@@ -571,7 +689,7 @@ def distroy():
     window.destroy()
     window2.destroy()
 
-feedback  = Button(window , text= 'Feedback' , bg = "silver" , width=10, height=1, font="2", command= None,background=footer_label,foreground=footer_fg)
+feedback  = Button(window , text= 'Feedback'  , width=10, height=1, font="2", command= None,background=footer_label,foreground=footer_fg)
 feedback.place(x= 1220 , y= 720)
 
 
@@ -580,27 +698,35 @@ feedback.place(x= 1220 , y= 720)
 # else:
 #     print("Updated")
 
-Version_info_remote_len = len(Version_info_remote)
-CurrentVersionNumber_Len = len(Version_info_local)
+def Play_again_fn():
+    os.startfile("C:\Games\Pairs-Game-Python\StartGame.bat")
+    window.destroy()
+
+# Version_info_remote_len = len(Version_info_remote)
+# CurrentVersionNumber_Len = len(Version_info_local)
 
 if Version_info_remote_len != CurrentVersionNumber_Len:
-    Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
+    Update_available  = Button(window , text= 'Update Available' , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
-
-    #Exit Button
-    exit_the_game  = Button(window , text= "Exit", width=8, height=1, command=window.destroy, font="2",background=footer_label,foreground=footer_fg)
-    exit_the_game.place(x= 60 , y= 720)
 
 else:
-    Update_available  = Button(window , text= "Version: 2.1", bg = "silver" , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
+    Update_available  = Button(window , text= Current_version_number , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
 
-    #exit Button
-    exit_the_game  = Button(window , text= "Exit", width=8, height=1, command=window.destroy, font="2",background=footer_label,foreground=footer_fg)
-    exit_the_game.place(x= 60 , y= 720)
+#Exit Button
+exit_the_game  = Button(window , text= "Exit", width=8, height=1, command=window.destroy, font="2",background=footer_label,foreground=footer_fg)
+exit_the_game.place(x= 25 , y= 720)
 
-#---------------------------------  Main logic Starts here   -----------------------------------------
+#Play Again
+Play_again  = Button(window , text= " Play Again ", width=8, height=1, command=Play_again_fn, font="2",background=footer_label,foreground=footer_fg)
+Play_again.place(x= 1240 , y= 650)
 
+#Developer website link
+Developer_credit = Label(window, font=('monospace' , 12 ), text="https://enally.in", background=None,foreground=footer_fg ,width='16')
+Developer_credit.place(x=144,y=733)
+
+
+#---------------------------------  Main logic Ends here   ---------------------------------------------
 #menu bar config
 window.config(menu = menubar)
 #loop Windows

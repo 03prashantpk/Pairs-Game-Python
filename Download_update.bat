@@ -1,21 +1,27 @@
 @Echo OFF
-Echo Reading Software requirements...
-Echo Working on Directory Creation...
-Echo Diretory Creation Succcess!
+Echo =============================================
+Echo           Searching for Updates 
+Echo ============================================
 
-timeout 4
+Echo Reading Software requirements...
+
+timeout 2
+
+Echo Moving Directory Success
 
 cd ..\
 
 python Helper.py %*
 
-timeout 2
+timeout 1
 
 Echo ===========================================================
 Echo       Developed by - Prashant Kumar & other team member
 Echo ===========================================================
 
 @echo off
+
+Echo New Directory Created
 
 cd C:\Games\
 
@@ -32,10 +38,10 @@ cd Pairs-Game-Python/
 start success.bat
 
 Echo =============================================
-Echo   Launching The Game... 
+Echo           Launching The Game... 
 Echo ============================================
 
-timeout 5
+timeout 2
 
 start startGame.bat
 exit
