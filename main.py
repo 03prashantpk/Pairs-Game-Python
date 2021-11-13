@@ -313,7 +313,12 @@ def Want_to_update():
     window2.config(background="#B7C5D5")
     window2.iconbitmap(logo)
 
-    update_available = Label(window2,text="Update Available",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    if count_remote_version != count_local_version:
+        header_message = "Update Available"
+    else:
+        header_message = "You're Update to date"
+
+    update_available = Label(window2,text=header_message,font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
     update_available.pack(pady=10)
 
     features = Label(window2,background="#B7C5D5",text=update_checker_text, justify= 'left')
@@ -326,11 +331,11 @@ def Want_to_update():
         window2.destroy()
 
     if count_remote_version != count_local_version:
-        Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
-        Update_available.place(x= 960 , y= 720)
+        Update_available_btn  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
+        Update_available_btn.place(x= 960 , y= 720)
     else:
-        Update_available  = Button(window , text= "Version: 2.1", bg = "silver" , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
-        Update_available.place(x= 960 , y= 720)
+        Update_available_btn  = Button(window , text= "Version: 2.1", bg = "silver" , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
+        Update_available_btn.place(x= 960 , y= 720)
 
 
 
