@@ -1,6 +1,8 @@
 @Echo OFF
 timeout 10
 
+cd ..\
+
 python Helper.py %*
 
 timeout 5
