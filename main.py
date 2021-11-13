@@ -340,11 +340,11 @@ def Want_to_update():
 
     def fatch_download_button():
             button = Button(window2, text='Download Update', width="55", height="28", command=app_Update_now,background=footer_label,foreground=footer_fg)
-            button.pack(pady=70, padx=150)
+            button.pack(pady=55, padx=150)
 
     def fatch_no_update_button():
             button = Button(window2, text='Happy Gaming', width="55", height="28", command=None,background=footer_label,foreground=footer_fg)
-            button.pack(pady=70, padx=150)
+            button.pack(pady=55, padx=150)
     
     if Version_info_remote_len != CurrentVersionNumber_Len:
         header_message = "Update Available"
