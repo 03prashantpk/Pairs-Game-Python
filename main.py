@@ -220,8 +220,14 @@ CurrentVersionNumber_V = WhatsNew.readline()
 version_info_file = open("assets/routes/versioninfo.txt", "r")
 Version_info_local = version_info_file.readline()
 
+print("Local Data",Version_info_local)
+print("Remove data ",Version_info_remote)
+
 Version_info_remote_len = len(Version_info_remote)
-CurrentVersionNumber_Len = len(CurrentVersionNumber_V)
+CurrentVersionNumber_Len = len(Version_info_local)
+
+print("Local Data",CurrentVersionNumber_Len)
+print("Remove data ",Version_info_remote_len)
 
 
 # print(count_remote_version,count_local_version)
@@ -573,6 +579,9 @@ feedback.place(x= 1220 , y= 720)
 #     print("Not Updated")
 # else:
 #     print("Updated")
+
+Version_info_remote_len = len(Version_info_remote)
+CurrentVersionNumber_Len = len(Version_info_local)
 
 if Version_info_remote_len != CurrentVersionNumber_Len:
     Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
