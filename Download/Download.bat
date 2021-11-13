@@ -1,13 +1,17 @@
 @Echo OFF
+timeout 5
+
 Echo =======================================================
 Echo       Developed by - Prashant Kumar
 Echo =======================================================
 Pause
 
 @echo off
-mkdir C:\Games\
-C:
-cd Games
+
+cd C:\
+mkdir Games
+
+cd C:\Games
 
 rm -rf Pairs-Game-Python
 git clone https://github.com/03prashantpk/Pairs-Game-Python.git
@@ -26,5 +30,6 @@ pause
 
 @echo off
 cd Pairs-Game-Python/
+start success.bat
 start startGame.bat
 exit

@@ -388,7 +388,7 @@ help_.add_separator(background=menu_background)
 help_.add_command(label ='Developer', command = lambda: App_developer(),font=menu_font_size,background=menu_background)
 
 #Heading (Game Name)
-credit_label = Label(window, width=100, text="Pairs Game - K20BN (G2)" ,font=("'Helvetica 28") ,background=heading , foreground=fg)
+credit_label = Label(window, width=100, text="Pairs Game - K20BN" ,font=("'Helvetica 28") ,background=heading , foreground=fg)
 credit_label.pack(pady=0)
 
 
