@@ -14,6 +14,8 @@ Pause
 
 @echo off
 
+cd C:\Games\
+
 rm -rf Pairs-Game-Python
 git clone https://github.com/03prashantpk/Pairs-Game-Python.git
 
