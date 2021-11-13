@@ -210,27 +210,6 @@ count_local_version = len(version_info)
 # print(version_info)
 # print(Version_info_tester)
 
-
-# # Decrease 1 line from update_cheker.xml
-# def update_update_cheker():
-    
-#     # Storing file in a list
-#     lines = []
-
-#     # File Read mode
-#     with open(r"assets/routes/versioninfo.xml", 'r') as fp:
-#         # read an store all lines into list
-#         lines = fp.readlines()
-
-#     # Writing changes by deleting list item
-#     with open(r"assets/routes/versioninfo.xml", 'w') as fp:
-
-#         # iterate each line
-#         for number, line in enumerate(lines):
-#             # delete line 0
-#             if number not in [0]:
-#                 fp.write(line)
-
 #---------------------------------------- File Handling Ends Here-------------------------------------
 
 
@@ -346,9 +325,12 @@ def Want_to_update():
         window.destroy()
         window2.destroy()
 
-    button = Button(window2, text='Download Update', width="55", height="28", command=app_Update_now)
-    button.pack(pady=70, padx=150)
-    window.mainloop()
+    if count_remote_version != count_local_version:
+        Update_available  = Button(window , text= 'Update Available' , bg = "silver" , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
+        Update_available.place(x= 960 , y= 720)
+    else:
+        Update_available  = Button(window , text= "Version: 2.1", bg = "silver" , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
+        Update_available.place(x= 960 , y= 720)
 
 
 
