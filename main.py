@@ -1,8 +1,8 @@
 #-------------- All imported files and libraries -----------------------------
+
 from tkinter import *
 import random
 from tkinter import messagebox
-import tkinter as tk
 import time
 # For Audio
 import pygame
@@ -13,12 +13,15 @@ import pyscreenshot
 #For Background Image
 from tkinter import ttk
 from PIL import Image,ImageTk
+import tkinter as tk
 #to run file directory
 import os
 #Read content using url
 import urllib.request
+#open url in brower for feedback
+import webbrowser
 
-# ------------------------------ Change Color and Logo here ---------------
+# ------------------------------ Change Color and Logo here -----------------
 #Window Icon or logo
 logo = "assets/images/enally.ico"
 
@@ -79,8 +82,11 @@ menu_background = "#41C4C0"
 # Font size and Family
 menu_font_size = ("Arial 12")
 
+#All popup window color (Menu bar)
+pop_window_color_Menu_bar = "#B7C5D5"
 
-#ScreenShot dimension
+# bg color for auto update features
+auto_update_popup_bg_color = "#0B1E51"
 
 # ------------------------------ Change Color and Logo Ends here ---------------
 
@@ -220,6 +226,7 @@ Version_info_local = version_info_file.readline()
 # print("Local Data",Version_info_local)
 # print("Remote data ",Version_info_remote)
 
+# Fatching online and offline data length to prompt update features.
 Version_info_remote_len = len(Version_info_remote)
 CurrentVersionNumber_Len = len(Version_info_local)
 
@@ -230,7 +237,6 @@ print("Remote data: ",Version_info_remote_len)
 # print(count_remote_version,count_local_version)
 # print(version_info)
 # print(Version_info_tester)
-
 
 #---------------------------------------- File Handling Ends Here-------------------------------------
 
@@ -291,7 +297,7 @@ window_background = PhotoImage(file=wall_now)
 l = Label(window , image= window_background)
 l.place(x = 0 , y = 20 , relwidth = 1 , relheight = 1)
 
-#Screenshot
+# Screenshot and save screenshot function starts here -------------------------------------------
 def screen_shot():
     image = pyscreenshot.grab()
     image.save("assets/screenshots/Pair_Game.png")
@@ -300,13 +306,14 @@ def open_ss():
     image = pyscreenshot.grab()
     image.save("assets/screenshots/Pair_Game.png")
     image.show()
+# Screenshot and save screenshot function Ends here ---------------------------------------------
 
 #app Version
 def app_version():
     window4 = Tk()
     window4.title('App Version')
     window4.geometry("500x300")
-    window4.config(background="#B7C5D5")
+    window4.config(background=pop_window_color_Menu_bar)
     window4.iconbitmap(logo)
 
     def viewAppversion():
@@ -314,11 +321,11 @@ def app_version():
             button.pack(pady=80, padx=190)
         
     # Update Window Header Text
-    appversion_info_win = Label(window4,text="Game Version",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win = Label(window4,text="Game Version",font= ('Times New Roman' , 20 , 'bold'),background=pop_window_color_Menu_bar, foreground="#242424")
     appversion_info_win.pack(pady=10)
 
     #Update Window What's New In update text
-    version_info_text_win = Label(window4,background="#B7C5D5",text=Current_version_number, justify= 'center', font=(10))
+    version_info_text_win = Label(window4,background=pop_window_color_Menu_bar,text=Current_version_number, justify= 'center', font=(10))
     version_info_text_win.pack(pady=10,padx=20)
 
     def Close_about():
@@ -326,7 +333,6 @@ def app_version():
 
     #fatching Download Button
     viewAppversion()
-    
     window.mainloop()
 
 #app Update Message (Not in use anymore)
@@ -338,7 +344,7 @@ def App_developer():
     window5 = Tk()
     window5.title('Our Other Projects')
     window5.geometry("500x300")
-    window5.config(background="#B7C5D5")
+    window5.config(background=pop_window_color_Menu_bar)
     window5.iconbitmap(logo)
 
     def viewAppversion():
@@ -346,11 +352,11 @@ def App_developer():
             button.pack(pady=50, padx=190)
         
     # Update Window Header Text
-    appversion_info_win = Label(window5,text="App Developers",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win = Label(window5,text="App Developers",font= ('Times New Roman' , 20 , 'bold'),background=pop_window_color_Menu_bar, foreground="#242424")
     appversion_info_win.pack(pady=10)
 
     #Update Window What's New In update text
-    version_info_text_win = Label(window5,background="#B7C5D5",text="This is a project work. Given by University\nInstructor Name: Sir. Moin Hasan\n\n More Information will be updated soon", justify= 'left',font=('Times New Roman' , 12 , ))
+    version_info_text_win = Label(window5,background=pop_window_color_Menu_bar,text="This is a project work. Given by University\nInstructor Name: Sir. Moin Hasan\n\n More Information will be updated soon", justify= 'left',font=('Times New Roman' , 12 , ))
     version_info_text_win.pack(pady=10,padx=20)
 
     def Close_about():
@@ -366,7 +372,7 @@ def Project():
     window5 = Tk()
     window5.title('Our Other Projects')
     window5.geometry("500x300")
-    window5.config(background="#B7C5D5")
+    window5.config(background=pop_window_color_Menu_bar)
     window5.iconbitmap(logo)
 
     def viewAppversion():
@@ -374,11 +380,11 @@ def Project():
             button.pack(pady=50, padx=190)
         
     # Update Window Header Text
-    appversion_info_win = Label(window5,text="More Projects",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win = Label(window5,text="More Projects",font= ('Times New Roman' , 20 , 'bold'),background=pop_window_color_Menu_bar, foreground="#242424")
     appversion_info_win.pack(pady=10)
 
     #Update Window What's New In update text
-    version_info_text_win = Label(window5,background="#B7C5D5",text="Our Other App\n 1. Multi Image Downloader - Using Python \n 2. Pair Game - Python \n 3. Music App - Python", justify= 'left',font=('Times New Roman' , 13 , ))
+    version_info_text_win = Label(window5,background=pop_window_color_Menu_bar,text="Our Other App\n 1. Multi Image Downloader - Using Python \n 2. Pair Game - Python \n 3. Music App - Python", justify= 'left',font=('Times New Roman' , 13 , ))
     version_info_text_win.pack(pady=10,padx=20)
 
     def Close_about():
@@ -392,21 +398,22 @@ def Project():
 #Contact Details
 def contact():
     window5 = Tk()
-    window5.title('Contact Info')
-    window5.geometry("500x300")
-    window5.config(background="#B7C5D5")
     window5.iconbitmap(logo)
+    window5.geometry("500x300")
+    window5.title('Contact Info')
+    window5.config(background=pop_window_color_Menu_bar)
+    
 
     def viewAppversion():
             button = Button(window5, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
             button.pack(pady=60, padx=190)
         
     # Update Window Header Text
-    appversion_info_win = Label(window5,text="Reach Us At",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    appversion_info_win = Label(window5,text="Reach Us At",font= ('Times New Roman' , 20 , 'bold'),background=pop_window_color_Menu_bar, foreground="#242424")
     appversion_info_win.pack(pady=10)
 
     #Update Window What's New In update text
-    version_info_text_win = Label(window5,background="#B7C5D5",text="Our (Team) Contact information are:\nEmail: admin@enally.in\nPhone: 961209XXXX", justify= 'left' ,font=('Times New Roman' , 13 , ))
+    version_info_text_win = Label(window5,background=pop_window_color_Menu_bar,text="Our (Team) Contact information are:\nEmail: admin@enally.in\nPhone: 961209XXXX", justify= 'left' ,font=('Times New Roman' , 13 , ))
     version_info_text_win.pack(pady=10,padx=20)
 
     def Close_about():
@@ -421,20 +428,21 @@ def contact():
 def about():
     window3 = Tk()
     window3.title('About')
-    window3.geometry("500x300")
-    window3.config(background="#B7C5D5")
     window3.iconbitmap(logo)
+    window3.geometry("500x300")
+    window3.config(background=pop_window_color_Menu_bar)
+    
 
     def fatch_download_button():
             button = Button(window3, text='Close', width="55", height="28", command=Close_about,background=footer_label,foreground=footer_fg)
             button.pack(pady=55, padx=190)
         
     # Update Window Header Text
-    about_title_win = Label(window3,text="About",font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    about_title_win = Label(window3,text="About",font= ('Times New Roman' , 20 , 'bold'),background=pop_window_color_Menu_bar, foreground="#242424")
     about_title_win.pack(pady=10)
 
     #Update Window What's New In update text
-    features = Label(window3,background="#B7C5D5",text="Pair Game. \nDeveloped for Childern above 3+ years. \nCan help to improve memory power. \n \nIt has exciting background music to keep children engaged.", justify= 'left')
+    features = Label(window3,background=pop_window_color_Menu_bar,text="Pair Game. \nDeveloped for Childern above 3+ years. \nCan help to improve memory power. \n \nIt has exciting background music to keep children engaged.", justify= 'left')
     features.pack(pady=10,padx=20)
 
     def Close_about():
@@ -451,7 +459,7 @@ def Want_to_update():
     window2 = Tk()
     window2.title('Update Window')
     window2.geometry("500x300")
-    window2.config(background="#B7C5D5")
+    window2.config(background=pop_window_color_Menu_bar)
     window2.iconbitmap(logo)
 
     def fatch_download_button():
@@ -469,11 +477,11 @@ def Want_to_update():
         header_message = "You're Update to date"
         
     # Update Window Header Text
-    update_available = Label(window2,text=header_message,font= ('Times New Roman' , 20 , 'bold'),background="#B7C5D5", foreground="#242424")
+    update_available = Label(window2,text=header_message,font= ('Times New Roman' , 20 , 'bold'),background=pop_window_color_Menu_bar, foreground="#242424")
     update_available.pack(pady=10)
 
     #Update Window What's New In update text
-    features = Label(window2,background="#B7C5D5",text=WhatsNewInUpdate, justify= 'left', font=('Times New Roman', 11,))
+    features = Label(window2,background=pop_window_color_Menu_bar,text=WhatsNewInUpdate, justify= 'left', font=('Times New Roman', 11,))
     features.pack(pady=9,padx=20)
 
     def app_Update_now():
@@ -553,15 +561,15 @@ def print_player_name():
 
 
 #Player Name input
-player_name = Label(window, text="Enter Your Name" ,font=("'Helvetica 11") ,background=bg , foreground=fg2)
+player_name = Label(window, text="Enter Your Name" ,font=('Arial Rounded MT Bold', 14,), width = 23 ,background=bg , foreground=fg2)
 player_name.pack(pady=10)
 
 #Player Name input area
-inputtxt = tk.Text(window,bd=3, height = 1, width = 28, background=text_area,)
+inputtxt = tk.Text(window,bd=3, height = 1, font=('Arial Rounded MT Bold', 14,), width = 25, background=text_area,)
 inputtxt.pack(pady=2)
 
 #Player Name input submit button
-printButton = Button(window,text= "Submit", background=button_bg, width=12, command = print_player_name)
+printButton = Button(window,text= "Submit", font=('Arial Rounded MT Bold', 14,), background=button_bg, width=12, command = print_player_name)
 printButton.pack(pady=4)
 
 #Player name assigning
@@ -689,9 +697,6 @@ def distroy():
     window.destroy()
     window2.destroy()
 
-feedback  = Button(window , text= 'Feedback'  , width=10, height=1, font="2", command= None,background=footer_label,foreground=footer_fg)
-feedback.place(x= 1220 , y= 720)
-
 
 # if count_remote_version != count_local_version:
 #     print("Not Updated")
@@ -702,16 +707,75 @@ def Play_again_fn():
     os.startfile("C:\Games\Pairs-Game-Python\StartGame.bat")
     window.destroy()
 
+def feed_back():
+    #open feedback url.
+    url = "https://enally.in/contact.php"
+    webbrowser.open_new(url)
+
+
+def auto_update_pop_with_y_n():
+    window_auto_up = Tk()
+    window_auto_up.title('New Update Abailable')
+    window_auto_up.geometry("570x70")
+    window_auto_up.config(background=auto_update_popup_bg_color)
+    window_auto_up.iconbitmap(logo)
+
+    def viewAppversion():
+
+            #printing on the right side
+            button = Button(window_auto_up, text='Update Now', width=10,  command=download_the_update_now,background=footer_label,foreground=footer_fg)
+            button.place(x=480,y=20)
+
+            # printing on the left side of the update button
+            button = Button(window_auto_up, text='Later', width=8,  command=Close_about,background=footer_label,foreground=footer_fg)
+            button.place(x=405,y=20)
+        
+    '''
+    This function only appears if the user has not updated the game.
+    Improvement can be done that... it should not prompt on every time launching the game.
+    Instead add a function the it should only appear few times (not again and again) on launching the game.
+
+    **Note: Make sure that you do not change or update ('A newer version of Pairs Game is available.') this text
+    written somewhere below as text='' otherwise it may break the code and the whole layout of the window
+    will destroy.
+    
+    '''
+
+    #Update Window What's New In update text (do not Update the text="" message)
+    version_info_text_win = Label(window_auto_up,background=auto_update_popup_bg_color,text="A newer version of Pairs Game is available.", foreground=fg, justify= 'left', font=('American Typewriter', 12, 'bold'))
+    version_info_text_win.place(x=20,y=20)
+
+    #funtion on cliking Update now placed on same code (function above) block above
+    def download_the_update_now():
+        messagebox.showinfo("Update Now", "Your Game Will Restart")
+        time.sleep(1)
+        os.startfile("C:\Games\Download_update.bat")
+        window.destroy()
+        window2.destroy()
+    
+    # close the update window
+    def Close_about():
+        window_auto_up.destroy()
+
+    #fatching Download Button
+    viewAppversion()
+    window.mainloop()
+
 # Version_info_remote_len = len(Version_info_remote)
 # CurrentVersionNumber_Len = len(Version_info_local)
 
 if Version_info_remote_len != CurrentVersionNumber_Len:
+    #Update Available
     Update_available  = Button(window , text= 'Update Available' , width=20, height=1, font="2", command= Want_to_update,background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
+    auto_update_pop_with_y_n()
 
 else:
+    #If Update not available
     Update_available  = Button(window , text= Current_version_number , width=20, height=1, font="2",background=footer_label,foreground=footer_fg)
     Update_available.place(x= 960 , y= 720)
+
+# Footer Buttons Codes Starts here....
 
 #Exit Button
 exit_the_game  = Button(window , text= "Exit", width=8, height=1, command=window.destroy, font="2",background=footer_label,foreground=footer_fg)
@@ -719,12 +783,16 @@ exit_the_game.place(x= 25 , y= 720)
 
 #Play Again
 Play_again  = Button(window , text= " Play Again ", width=8, height=1, command=Play_again_fn, font="2",background=footer_label,foreground=footer_fg)
-Play_again.place(x= 1240 , y= 650)
+Play_again.place(x= 1240 , y= 660)
 
 #Developer website link
 Developer_credit = Label(window, font=('monospace' , 12 ), text="https://enally.in", background=None,foreground=footer_fg ,width='16')
 Developer_credit.place(x=144,y=733)
 
+feedback  = Button(window , text= 'Feedback'  , width=10, height=1, font="2", command= feed_back,background=footer_label,foreground=footer_fg)
+feedback.place(x= 1220 , y= 720)
+
+# Footer Buttons Codes Starts here....
 
 #---------------------------------  Main logic Ends here   ---------------------------------------------
 #menu bar config
