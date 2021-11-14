@@ -101,7 +101,7 @@ A import_lib.bat file will be available soon to auto install all the libraries.
 
 ## Authors
 
-Prashant Kumar [LinkedIn](https://www.linkedin.com/in/03prashantpk/) | [Instagram](https://instagram.com/prashantpkumar) | [Email](https://tinyurl.com/mailPK) | ![](https://komarev.com/ghpvc/?username=03prashantpk&color=red)<br>
+- Prashant Kumar 
 
 
 ### Contributors names and contact info
