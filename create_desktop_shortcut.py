@@ -25,4 +25,4 @@ shortcut.save()
 # delete functionality, and a certain amount of support for structured storage.
 
 #About Dispatch
-# Is event handling for Python
+# Is event handlerfor Python (runtime)
