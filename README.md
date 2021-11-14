@@ -30,7 +30,7 @@ It also has some app update, version and etc function Which allow users to updat
 
 A import_lib.bat file will be available soon to auto install all the libraries.
 
-- args                0.1.0
+- args               0.1.0
 - autopep8           1.5.7
 - beautifulsoup4     4.9.3
 - certifi            2021.5.30
