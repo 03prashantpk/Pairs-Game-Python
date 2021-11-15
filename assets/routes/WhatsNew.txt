@@ -1,4 +1,7 @@
 This is a Pair Game developed using Python.
-Developed by - https://github.com/03prashantpk (Prashant Kumar) and Team
+Developed by - https://github.com/03prashantpk 
+(Prashant Kumar) and Team
 
-Updates: Less bug, More Features and exciting Music Tracks. Update Notification Window.
+Updates: 
+1. Less bug, More Features and exciting Music Tracks. 
+2. Update Notification Window.

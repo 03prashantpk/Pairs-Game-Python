@@ -35,7 +35,7 @@ tile_background = "#4530A2"
 tile_foreground = "#F0F6FB"
 
 #Matched
-success_background = "#B8EB4E"
+success_background = "#82e0aa"
 success_foreground = "yellow"
 
 #matched_mesage
@@ -67,9 +67,9 @@ player_name_foreground = "#000000"
 button_bg = "#F5DEB3"
 
 #footer lable win and Alert color
-footer_label = "#FFD800"
+footer_label = "#f9e79f"
 footer_fg = "#000"
-footer_label_W = "#FFD700"
+footer_label_W = "#f9e79f"
 footer_label_f = "#194049"
 
 # record total chance remaining and total matches
@@ -94,7 +94,7 @@ auto_update_popup_bg_color = "#0B1E51"
 #------------------------------- initialization and function of - pygame for audio Here ---------------
 pygame.mixer.init()
 
-# Music track
+# Change Music track (using menubar)
 def change_music(music_next):
     if music_next == 1:
         def opening():
@@ -113,6 +113,7 @@ def change_music(music_next):
             pygame.mixer.music.load("assets/music/soha.mp3")
             pygame.mixer.music.play(loops=3)
         opening()
+
 
 def fail():
     pygame.mixer.music.load("assets/music/Fail.mp3")
@@ -254,11 +255,12 @@ wallpaper_no = random.randint(0, 3)
 
 #--- Choice 1
 if wallpaper_no == 0:
-    wall_now= "assets/images/bg4.png"
-    tile_background = "#FFB6C1"
+    wall_now= "assets/images/bg8.png"
+    tile_background = "#5499c7"
     tile_foreground = "#F0F6FB"
+
     def opening():
-        pygame.mixer.music.load("assets/music/Mrbean_bg1.mp3")
+        pygame.mixer.music.load("assets/music/titanic_bgm.mp3")
         pygame.mixer.music.play(loops=3)
     opening()
 
@@ -464,11 +466,11 @@ def Want_to_update():
 
     def fatch_download_button():
             button = Button(window2, text='Download Update', width="55", height="28", command=app_Update_now,background=footer_label,foreground=footer_fg)
-            button.pack(pady=55, padx=150)
+            button.pack(pady=30, padx=150)
 
     def fatch_no_update_button():
             button = Button(window2, text='Cose', width="55", height="28", command=Close_btn,background=footer_label,foreground=footer_fg)
-            button.pack(pady=55, padx=190)
+            button.pack(pady=30, padx=190)
     
     if Version_info_remote_len != CurrentVersionNumber_Len:
         header_message = "Update Available"
@@ -786,11 +788,27 @@ Play_again  = Button(window , text= " Play Again ", width=8, height=1, command=P
 Play_again.place(x= 1240 , y= 660)
 
 #Developer website link
-Developer_credit = Label(window, font=('monospace' , 12 ), text="https://enally.in", background=None,foreground=footer_fg ,width='16')
-Developer_credit.place(x=144,y=733)
+Developer_credit = Label(window, font=('Times New Roman' , 10 , 'bold'), text="https://enally.in", background=None,foreground=footer_fg ,width='18')
+Developer_credit.place(x=144,y=735)
 
 feedback  = Button(window , text= 'Feedback'  , width=10, height=1, font="2", command= feed_back,background=footer_label,foreground=footer_fg)
 feedback.place(x= 1220 , y= 720)
+
+if wallpaper_no == 0:
+    current_themes = Label(window, text="Current Theme: Titanic",font= ('Times New Roman' , 10 , 'bold'))
+    current_themes.place(x=144,y=710)
+
+elif wallpaper_no == 1:
+    current_themes = Label(window, text="Current Theme: Mr.Bean",font= ('Times New Roman' , 10 , 'bold'))
+    current_themes.place(x=144,y=710)
+
+elif wallpaper_no == 2:
+    current_themes = Label(window, text="Current Theme: Jungle Book",font= ('Times New Roman' , 10 , 'bold'))
+    current_themes.place(x=144,y=710)
+
+elif wallpaper_no == 3:
+    current_themes = Label(window, text="Current Theme: Hattori",font= ('Times New Roman' , 10 , 'bold'))
+    current_themes.place(x=144,y=710)
 
 # Footer Buttons Codes Starts here....
 
