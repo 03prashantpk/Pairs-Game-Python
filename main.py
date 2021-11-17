@@ -1,12 +1,11 @@
 #-------------- All imported files and libraries -----------------------------
-
 from tkinter import *
 import random
 from tkinter import messagebox
 import time
 # For Audio
 import pygame
-#For  Menu bar
+#For  Menu bar and open files
 from tkinter.filedialog import askopenfilename
 #For Screenshot
 import pyscreenshot
@@ -245,7 +244,7 @@ print("Remote data: ",Version_info_remote_len)
 # ---------------------------------- windows Icons and buttons functions assigned here --------------
 #Main window, Icons and title variables 
 window = Tk()
-window.title("Pairs Game - Prashant Kumar")
+window.title("Pairs Game - Prashant Kumar, Abhinav Raj and Rohit Mehta")
 window.iconbitmap(logo)
 window.geometry("1350x800")
 #window['background'] = bg 
@@ -459,10 +458,10 @@ def about():
 #app Update Message
 def Want_to_update():
     window2 = Tk()
-    window2.title('Update Window')
-    window2.geometry("500x300")
-    window2.config(background=pop_window_color_Menu_bar)
     window2.iconbitmap(logo)
+    window2.geometry("500x300")
+    window2.title('Update Window')
+    window2.config(background=pop_window_color_Menu_bar)
 
     def fatch_download_button():
             button = Button(window2, text='Download Update', width="55", height="28", command=app_Update_now,background=footer_label,foreground=footer_fg)
@@ -695,6 +694,7 @@ remaining_chance_label.pack(pady=2)
 
 status_label = Label(window, font="18", text="Game Status: Not Started Yet", background=footer_label,foreground=footer_fg ,width='24')
 status_label.pack(pady=20)
+
 def distroy():
     window.destroy()
     window2.destroy()
@@ -717,10 +717,11 @@ def feed_back():
 
 def auto_update_pop_with_y_n():
     window_auto_up = Tk()
-    window_auto_up.title('New Update Abailable')
-    window_auto_up.geometry("570x70")
-    window_auto_up.config(background=auto_update_popup_bg_color)
     window_auto_up.iconbitmap(logo)
+    window_auto_up.geometry("570x70")
+    window_auto_up.title('New Update Abailable')
+    window_auto_up.config(background=auto_update_popup_bg_color)
+    
 
     def viewAppversion():
 

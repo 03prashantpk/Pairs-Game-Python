@@ -1,5 +1,5 @@
 @Echo OFF
-timeout 2
+timeout 1
 
 Echo =======================================================
 Echo       Developed by - Prashant Kumar and Team Members
@@ -32,7 +32,7 @@ start success.bat
 
 Echo =============================================
 Echo   Launching The Game... 
-Echo ============================================
+Echo =============================================
 
 timeout 2
 
