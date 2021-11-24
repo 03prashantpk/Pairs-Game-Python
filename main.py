@@ -198,15 +198,15 @@ def dec_chance():
 #To access and read txt file from url
 
 # Read Update text
-remote_url  = urllib.request.urlopen('https://www.enally.in/PairGame/WhatsNew.txt')
+remote_url  = urllib.request.urlopen('https://notes-k20bn.000webhostapp.com/PairGame/WhatsNew.txt')
 WhatsNewInUpdate = remote_url.read()
 
 # Read Version Number
-Current_version_no  = urllib.request.urlopen('https://www.enally.in/PairGame/CurrentVersion.txt')
+Current_version_no  = urllib.request.urlopen('https://notes-k20bn.000webhostapp.com/PairGame/CurrentVersion.txt')
 Current_version_number = Current_version_no.read()
 
 #Version Info File and it use to confirm updates (using count function here...)
-remote_url_version_info  = urllib.request.urlopen('https://www.enally.in/PairGame/versioninfo.txt')
+remote_url_version_info  = urllib.request.urlopen('https://notes-k20bn.000webhostapp.com/PairGame/versioninfo.txt')
 Version_info_remote = remote_url_version_info.read()
 
 # Reading Local files data to match and print it on GUI
@@ -343,8 +343,8 @@ def app_Update():
 #App developer and Project info
 def App_developer():
     window5 = Tk()
-    window5.title('Our Other Projects')
     window5.geometry("500x300")
+    window5.title('Our Other Projects')
     window5.config(background=pop_window_color_Menu_bar)
     window5.iconbitmap(logo)
 
@@ -371,8 +371,8 @@ def App_developer():
 #Project info  
 def Project():
     window5 = Tk()
-    window5.title('Our Other Projects')
     window5.geometry("500x300")
+    window5.title('Our Other Projects')
     window5.config(background=pop_window_color_Menu_bar)
     window5.iconbitmap(logo)
 
@@ -414,7 +414,7 @@ def contact():
     appversion_info_win.pack(pady=10)
 
     #Update Window What's New In update text
-    version_info_text_win = Label(window5,background=pop_window_color_Menu_bar,text="Our (Team) Contact information are:\nEmail: admin@enally.in\nPhone: 961209XXXX", justify= 'left' ,font=('Times New Roman' , 13 , ))
+    version_info_text_win = Label(window5,background=pop_window_color_Menu_bar,text="Our (Team) Contact information are:\nEmail: admin@flevar.in\nPhone: 961209XXXX", justify= 'left' ,font=('Times New Roman' , 13 , ))
     version_info_text_win.pack(pady=10,padx=20)
 
     def Close_about():
@@ -711,7 +711,7 @@ def Play_again_fn():
 
 def feed_back():
     #open feedback url.
-    url = "https://enally.in/contact.php"
+    url = "https://notes-k20bn.000webhostapp.com/contact.php"
     webbrowser.open_new(url)
 
 
@@ -744,7 +744,7 @@ def auto_update_pop_with_y_n():
     
     '''
 
-    #Update Window What's New In update text (do not Update the text="" message)
+    #Update Window What's New In update text (do not Update the text=" " message)
     version_info_text_win = Label(window_auto_up,background=auto_update_popup_bg_color,text="A newer version of Pairs Game is available.", foreground=fg, justify= 'left', font=('American Typewriter', 12, 'bold'))
     version_info_text_win.place(x=20,y=20)
 
@@ -789,7 +789,7 @@ Play_again  = Button(window , text= " Play Again ", width=8, height=1, command=P
 Play_again.place(x= 1240 , y= 660)
 
 #Developer website link
-Developer_credit = Label(window, font=('Times New Roman' , 10 , 'bold'), text="https://enally.in", background=None,foreground=footer_fg ,width='18')
+Developer_credit = Label(window, font=('Times New Roman' , 10 , 'bold'), text="https://flevar.in", background=None,foreground=footer_fg ,width='18')
 Developer_credit.place(x=144,y=735)
 
 feedback  = Button(window , text= 'Feedback'  , width=10, height=1, font="2", command= feed_back,background=footer_label,foreground=footer_fg)
