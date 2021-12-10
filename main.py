@@ -87,7 +87,7 @@ pop_window_color_Menu_bar = "#B7C5D5"
 # bg color for auto update features
 auto_update_popup_bg_color = "#0B1E51"
 
-# ------------------------------ Change Color and Logo Ends here ---------------
+# ------------------------------ Change Color and Logo Ends here --------------------------------
 
 
 #------------------------------- initialization and function of - pygame for audio Here ---------------
@@ -244,7 +244,7 @@ print("Remote data: ",Version_info_remote_len)
 # ---------------------------------- windows Icons and buttons functions assigned here --------------
 #Main window, Icons and title variables 
 window = Tk()
-window.title("Pairs Game - Prashant Kumar, Abhinav Raj and Rohit Mehta")
+window.title("Pairs Game - Prashant Kumar")
 window.iconbitmap(logo)
 window.geometry("1350x800")
 #window['background'] = bg 
@@ -711,7 +711,7 @@ def Play_again_fn():
 
 def feed_back():
     #open feedback url.
-    url = "https://notes-k20bn.000webhostapp.com/contact.php"
+    url = "http:/enally.in/contact.php"
     webbrowser.open_new(url)
 
 
@@ -789,7 +789,7 @@ Play_again  = Button(window , text= " Play Again ", width=8, height=1, command=P
 Play_again.place(x= 1240 , y= 660)
 
 #Developer website link
-Developer_credit = Label(window, font=('Times New Roman' , 10 , 'bold'), text="https://flevar.in", background=None,foreground=footer_fg ,width='18')
+Developer_credit = Label(window, font=('Times New Roman' , 10 , 'bold'), text="https://enally.in", background=None,foreground=footer_fg ,width='18')
 Developer_credit.place(x=144,y=735)
 
 feedback  = Button(window , text= 'Feedback'  , width=10, height=1, font="2", command= feed_back,background=footer_label,foreground=footer_fg)
