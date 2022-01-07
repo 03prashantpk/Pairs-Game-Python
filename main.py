@@ -135,7 +135,7 @@ def clicked_pop():
     pygame.mixer.music.load("assets/music/pop.mp3")
     pygame.mixer.music.play(loops=0)
 #clicked_pop()
-#------------------------------- initialization and function of - pygame ends Here ---------------
+#------------------------------- initialization and function of - pygame ends Here ------------
 
 
 #---------------------------------------- File Handling -------------------------------------
