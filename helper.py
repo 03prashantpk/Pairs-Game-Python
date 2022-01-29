@@ -13,6 +13,7 @@ parent = "C:\Games"
 shutil.rmtree("C:\Games\Pairs-Game-Python", ignore_errors=True)
 
 time.sleep(1)
+# time.sleep is used to delay
 
 # Module Details
 
