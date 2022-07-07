@@ -30,71 +30,7 @@ It also has some app update, version and etc function Which allow users to updat
 
 A import_lib.bat file will be available soon to auto install all the libraries.
 
-- args               0.1.0
-- autopep8           1.5.7
-- beautifulsoup4     4.9.3
-- certifi            2021.5.30
-- charset-normalizer 2.0.4
-- climage            0.1.3
-- clint              0.5.1
-- colorama           0.4.4
-- comtypes           1.1.10
-- EasyProcess        0.3
-- entrypoint2        0.2.4
-- feedparser         6.0.8
-- guli               0.1
-- idna               3.2
-- jaraco.context     4.0.0
-- kdtree             0.16
-- lxml               4.6.3
-- more-itertools     8.8.0
-- MouseInfo          0.1.3
-- mss                6.1.0
-- numpy              1.21.4
-- pandas             1.3.4
-- Pillow             8.3.1
-- pip                21.3.1
-- progressbar        2.5
-- progressbar2       3.55.0
-- PyAutoGUI          0.9.53
-- pycodestyle        2.7.0
-- pygame             2.1.0
-- PyGetWindow        0.0.9
-- pyjokes            0.6.0
-- PyJWT              1.7.1
-- PyMsgBox           1.0.9
-- pyperclip          1.8.2
-- pypiwin32          223
-- PyRect             0.1.4
-- pyscreenshot       3.0
-- PyScreeze          0.1.27
-- python-dateutil    2.8.2
-- python-utils       2.5.6
-- pyttsx3            2.90
-- PyTweening         1.0.3
-- pytz               2021.1
-- pywhatkit          5.1
-- pywin32            301
-- PyYAML             6.0
-- requests           2.26.0
-- schedule           1.1.0
-- setuptools         57.4.0
-- sgmllib3k          1.0.0
-- six                1.16.0
-- soupsieve          2.2.1
-- SpeechRecognition  3.8.1
-- terminal-img       0.0.2
-- tk                 0.1.0
-- toml               0.10.2
-- tqdm               4.62.3
-- turtle             0.0.1
-- twilio             6.63.0
-- urllib3            1.26.6
-- wikipedia          1.4.0
-- winshell           0.6
-- wolframalpha       5.0.0
-- xmltodict          0.12.0
-
+- All libraries will be installed automatically
 
 ### Screenshots and demo Youtube video Link will update soon.
 
